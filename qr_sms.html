@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code SMS</title>
+    <script>
+        function sendSMS() {
+            // Récupérer les informations de l'appareil
+            let userAgent = navigator.userAgent;
+            let screenWidth = screen.width;
+            let screenHeight = screen.height;
+            let deviceInfo = "Infos Appareil: " + userAgent + " | Résolution: " + screenWidth + "x" + screenHeight;
+
+            // Numéro de téléphone cible
+            let phoneNumber = "+21620903010";
+
+            // Construire le lien SMS
+            let smsLink = "sms:" + phoneNumber + "?body=" + encodeURIComponent(deviceInfo);
+
+            // Ouvrir l'application SMS
+            window.location.href = smsLink;
+        }
+    </script>
+</head>
+<body onload="sendSMS()">
+    <h2>Préparation du message...</h2>
+</body>
+</html>
